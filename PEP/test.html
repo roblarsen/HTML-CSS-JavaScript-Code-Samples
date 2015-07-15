@@ -9,15 +9,12 @@
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
         <script src="https://code.jquery.com/pep/0.3.0/pep.js"></script> 
-
-        <link rel="stylesheet" href="../_assets/css/normalize.css">
-        <link rel="stylesheet" href="../_assets/css/main.css">
       <link rel="stylesheet" href="spy.css">
     </head>
     <body>
-<div id="spy"><p>Tap here</p></div>
-<div id="reporter" style="height:400px; transition: transform 0.2s linear;
-  -webkit-transition: -webkit-transform 0.2s linear;"></div>
+<div id="spy" style="transition: transform 0.2s linear;
+  -webkit-transition: -webkit-transform 0.2s linear; "><p>Tap here</p></div>
+<div id="reporter" style="height:400px;"></div>
 <script>
 window.addEventListener('DOMContentLoaded', function() {
   var events = [
