@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<catalog>
+   <book id="bk101">
+      <author>Otero, Cesar</author>
+      <author>Larsen, Rob</author>
+      <title>Professional jQuery</title>
+      <genre>Computer</genre>
+      <amazon>http://www.amazon.com/gp/product/B007NUQF9K/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B007NUQF9K&linkCode=as2&tag=drunkenfistcom</amazon>
+      <price>44.99</price>
+      <publish_date>2012-03-20</publish_date>
+      <description>An in-depth look at jQuery.</description>
+   </book>
+   <book id="bk102">
+      <author>Larsen, Rob</author>
+      <title>Beginning HTML and CSS</title>
+      <genre>Fantasy</genre>
+      <amazon>http://www.amazon.com/gp/product/B00BRY6MUU/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00BRY6MUU&linkCode=as2&tag=drunkenfistcom</amazon>
+      <price>34.99</price>
+      <publish_date>2013-03-08</publish_date>
+      <description>An in-depth introduction to HTML, CSS and JavaScript</description>
+   </book>
+</catalog>
