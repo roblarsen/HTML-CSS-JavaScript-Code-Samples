@@ -14,6 +14,6 @@ d3.json("data/books.json").then((data) => {
     .data(data.sales)
     .enter()
     .append("p")
-    .text((d)=>{ return `${d.date} ${d.title} ${d.issue} ${d.grade} ${d.note} ${d.venue} ${d.price}`});
+    .text((d)=>{ return `${d.date} ${d.title} ${d.issue} ${d.grade} ${d.note} ${d.venue} ${d3.format("$,")(d.price)}`});
 
 });

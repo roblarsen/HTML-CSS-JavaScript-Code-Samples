@@ -34,7 +34,7 @@
       "note": "",
       "date": "2010-02-25",
       "venue": "Heritage",
-      "price": "107500000"
+      "price": "1075000"
     },
     {
       "title": "Action Comics",
@@ -123,8 +123,8 @@
       "grade": "NM-MT",
       "note": "Allentown",
       "price": "80000",
-      "venue": "private sale",
-      "date": "1990-01-01"
+      "venue": "Metropolis to Dave Anderson",
+      "date": "1990-03-01"
     },
     {
       "title": "Action Comics",
@@ -152,6 +152,16 @@
       "date": "1979-01-01",
       "venue": "private sale",
       "price": "13000"
+    },
+    
+    {
+      "title": "Marvel Comics",
+      "issue": "1",
+      "grade": "",
+      "note": "Per Boston Globe clipping in April of 1076",
+      "date": "1975-01-01",
+      "venue": "private sale",
+      "price": "6300"
     },
     {
       "title": "Whiz",
