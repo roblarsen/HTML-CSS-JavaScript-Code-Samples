@@ -36,7 +36,17 @@ console.log(data)
 x.domain(d3.extent(data.sales, function (d) { return d.date; }));
 y.domain([0, d3.max(data.sales, function (d) { console.log(d.price);return d.price; })]);
 let g = svg.append("g").attr("transform", `translate(${margin.top},${margin.left})`)
+// gridlines in x axis function
+function make_x_gridlines() {		
+  return d3.axisBottom(x)
+      .ticks(5)
+}
 
+// gridlines in y axis function
+function make_y_gridlines() {		
+  return d3.axisLeft(y)
+      .ticks(5)
+}
 g.append("path")
 .data([data.sales])
 .attr("class", "line")
@@ -54,6 +64,21 @@ g.append("g")
 .attr("transform", "translate(0," + height + ")")
 .call(d3.axisBottom(x));
 
+svg.append("g")			
+.attr("class", "grid")
+.attr("transform", "translate(0," + height + ")")
+.call(make_x_gridlines()
+    .tickSize(-height)
+    .tickFormat("")
+)
+
+// add the Y gridlines
+svg.append("g")			
+.attr("class", "grid")
+.call(make_y_gridlines()
+    .tickSize(-width)
+    .tickFormat("")
+)
 
 g.append("g")
 .call(d3.axisLeft(y));
