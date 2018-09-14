@@ -41,9 +41,9 @@ function yGridlines() {
 }
 
 d3.json("data/books.json").then((data) => {
-  data.sales = data.sales.reverse();
+  const sales = data.sales.sort((d1,d2)=>moment.utc(d1.date).diff(moment.utc(d2.date)));
 
-  data.sales.forEach((d) => {
+  sales.forEach((d) => {
     d.date = parseTime(d.date);
     d.price = parseInt(d.price);
     const year = parseInt(moment(d.date).format("YYYY"));
@@ -51,10 +51,10 @@ d3.json("data/books.json").then((data) => {
   });
 
   x.domain([
-    d3.min(data.sales, (d)=> { 
+    d3.min(sales, (d)=> { 
       return moment(d.date).startOf("year").toDate(); 
     }),moment().toDate()]);
-  y.domain([0, d3.max(data.sales, (d)=> { 
+  y.domain([0, d3.max(sales, (d)=> { 
     return Math.ceil(d.price / 500000) * 500000; 
   })]);
   const years = parseInt(moment().format("YYYY")) - parseInt(moment(x.domain()[0]).format("YYYY"));
@@ -76,12 +76,12 @@ let paths = g.append("g")
     .attr("class", "paths")
 
   paths.append("path")
-    .data([data.sales])
+    .data([sales])
     .attr("class", "line nominal")
     .attr("d", line)
 
   paths.append("path")
-    .data([data.sales])
+    .data([sales])
     .attr("class", "inflation line")
     .attr("d", inflationLine);
 
@@ -89,7 +89,7 @@ let paths = g.append("g")
     .attr("class", "dots")
 
   dots.selectAll(".dot")
-    .data(data.sales)
+    .data(sales)
     .enter()
     .append("circle")
     .attr("class", "dot nominal")
@@ -98,7 +98,7 @@ let paths = g.append("g")
     .attr("r", radius)
     .append("title").text(function (d) { return `${d.title} ${d.grade} ${d.price.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}: ${d.venue}` });
   dots.selectAll(".inflation dot")
-    .data(data.sales)
+    .data(sales)
     .enter().append("circle")
     .attr("class", "inflation dot")
     .attr("cx", function (d) { return x(d.date) })
