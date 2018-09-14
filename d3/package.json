@@ -9,7 +9,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "browserify": "^16.2.2",
     "d3": "^5.7.0",
-    "d3-fetch": "^1.1.2"
+    "d3-fetch": "^1.1.2",
+    "moment": "^2.22.2",
+    "save-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "us-inflation": "^1.1.0"
   }
 }

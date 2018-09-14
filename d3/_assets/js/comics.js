@@ -4,85 +4,104 @@ const margin = {
   "bottom": 100,
   "left": 100
 }
-const width = 1440 - margin.left - margin.right;
-const height = 768 - margin.top - margin.bottom;
+const width = 1440;
+const height = 768;
+const yPadding = margin.top + margin.bottom;
+const xPadding = margin.right + margin.left;
 
 const svg = d3.select("#target")
-              .append("svg")
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.top + margin.bottom);
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
 
-let parseTime = d3.timeParse("%Y-%m-%d");
+const g = svg.append("g")
+  .attr("transform", `translate(${margin.left},${margin.top})`)
+const radius = 10
+const parseTime = d3.timeParse("%Y-%m-%d");
 
-let x = d3.scaleTime()
-          .rangeRound([0, width]);
+const x = d3.scaleTime()
+  .rangeRound([0, width - xPadding]);
 
-let y = d3.scaleLinear()
-          .rangeRound([height, 0]);
+const y = d3.scaleLinear()
+  .rangeRound([height - yPadding, 0]);
 
-let line = d3.line()
-.x(function (d) { return x(d.date); })
-.y(function (d) { return y(d.price); });
-d3.json("data/books.json").then((data) => {
-console.log(data)
-data.sales = data.sales.reverse();
 
-data.sales.forEach(function (d) {
-d.date = parseTime(d.date);
-d.price = + d.price;
-});
-console.log(data)
+const line = d3.line()
+  .x(function (d) { return x(d.date); })
+  .y(function (d) { return y(d.price); });
 
-x.domain(d3.extent(data.sales, function (d) { return d.date; }));
-y.domain([0, d3.max(data.sales, function (d) { console.log(d.price);return d.price; })]);
-let g = svg.append("g").attr("transform", `translate(${margin.top},${margin.left})`)
-// gridlines in x axis function
-function make_x_gridlines() {		
-  return d3.axisBottom(x)
-      .ticks(5)
-}
+const inflationLine = d3.line()
+  .x(function (d) { return x(d.date); })
+  .y(function (d) { return y(d.inflationAdjustedPrice); });
 
-// gridlines in y axis function
-function make_y_gridlines() {		
+
+function yGridlines() {
   return d3.axisLeft(y)
-      .ticks(5)
+    .ticks(5)
 }
-g.append("path")
-.data([data.sales])
-.attr("class", "line")
-.attr("d", line);
-g.selectAll(".dot")
+
+d3.json("data/books.json").then((data) => {
+  data.sales = data.sales.reverse();
+
+  data.sales.forEach((d) => {
+    d.date = parseTime(d.date);
+    d.price = parseInt(d.price);
+    const year = parseInt(moment(d.date).format("YYYY"));
+    d.inflationAdjustedPrice = inflation({ "amount": d.price, "year": year })
+  });
+
+  x.domain([
+    d3.min(data.sales, (d)=> { 
+      return moment(d.date).startOf("year").toDate(); 
+    }),moment().toDate()]);
+  y.domain([0, d3.max(data.sales, (d)=> { 
+    return Math.ceil(d.price / 500000) * 500000; 
+  })]);
+
+  let paths = g.append("g")
+    .attr("class", "paths")
+
+  paths.append("path")
+    .data([data.sales])
+    .attr("class", "line")
+    .attr("d", line)
+
+  paths.append("path")
+    .data([data.sales])
+    .attr("class", "inflation line")
+    .attr("d", inflationLine);
+
+  let dots = g.append("g")
+    .attr("class", "dots")
+
+  dots.selectAll(".dot")
     .data(data.sales)
-  .enter().append("circle")
+    .enter()
+    .append("circle")
     .attr("class", "dot")
-    .attr("cx", function(d) { return x(d.date) })
-    .attr("cy", function(d) { return y(d.price) })
-    .attr("r", 5)
-    .append("title").text(function(d) { return`${d.title} ${d.grade} ${d.price}: ${d.venue}`});
+    .attr("cx", function (d) { return x(d.date) })
+    .attr("cy", function (d) { return y(d.price) })
+    .attr("r", radius)
+    .append("title").text(function (d) { return `${d.title} ${d.grade} ${d.price.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}: ${d.venue}` });
+  dots.selectAll(".inflation dot")
+    .data(data.sales)
+    .enter().append("circle")
+    .attr("class", "inflation dot")
+    .attr("cx", function (d) { return x(d.date) })
+    .attr("cy", function (d) { return y(d.inflationAdjustedPrice) })
+    .attr("r", radius)
+    .append("title").text(function (d) { return `${d.title} ${d.grade} ${d.inflationAdjustedPrice.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}: ${d.venue}` });
+  let axis = g.append("g")
+    .attr("class", "axis")
 
-g.append("g")
-.attr("transform", "translate(0," + height + ")")
-.call(d3.axisBottom(x));
-
-svg.append("g")			
-.attr("class", "grid")
-.attr("transform", "translate(0," + height + ")")
-.call(make_x_gridlines()
-    .tickSize(-height)
-    .tickFormat("")
-)
-
-// add the Y gridlines
-svg.append("g")			
-.attr("class", "grid")
-.call(make_y_gridlines()
-    .tickSize(-width)
-    .tickFormat("")
-)
-
-g.append("g")
-.call(d3.axisLeft(y));
+  axis.append("g")
+    .attr("class", "y axis")
+    .call(d3.axisLeft(y)
+    .tickSize(-(width-xPadding)));
+  axis.append("g")
+  .attr("class", "x axis")
+    .attr("transform", `translate(0, ${height - yPadding})`)
+    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yPadding)));
 
 
 });
-

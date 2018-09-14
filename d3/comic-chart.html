@@ -20,15 +20,33 @@
         }
         .line {
             fill:none;
-            stroke: blue;
+            stroke: rgb(0, 100, 201);;
             stroke-width: 2;
         }
-        
+        .line.inflation {
+            stroke: rgba(0, 100, 201, .5);;
+        }
+        .dot {
+            fill:rgba(255, 165, 0, .5);
+            stroke: rgb(100, 0, 201);
+
+        }
+        .axis .tick line {
+            stroke: #ccc;
+        }
+        .x.axis .tick:nth-of-type(1) line {
+            stroke: #000;
+        }
+        .y.axis .tick text
+        {
+            text-anchor: end;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12" id="target">
 
@@ -39,6 +57,8 @@
 
     <script src="node_modules/d3/dist/d3.min.js"></script>
     <script src="node_modules/d3-fetch/dist/d3-fetch.min.js"></script>
+    <script src="_assets/js/inflation.js"></script>
+    <script src="node_modules/moment/min/moment.min.js"></script>
     <script src="_assets/js/comics.js"></script>
 
 
