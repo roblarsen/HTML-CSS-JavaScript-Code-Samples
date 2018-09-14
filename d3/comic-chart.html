@@ -40,9 +40,19 @@
             text-anchor: end;
             font-size: 12px;
         }
-        .x.axis .tick text
-        {
-transform: translateY(10)
+        .dot,
+        .line {
+            visibility: hidden;
+        }
+
+        .nominal .dot.nominal,
+        .nominal .line.nominal,
+        .inflation .dot.inflation,
+        .inflation .line.inflation {
+            visibility: visible;
+        }
+        .form-check {
+            margin-left: 100px;
         }
 
     </style>
@@ -51,8 +61,24 @@ transform: translateY(10)
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12" id="target">
+            <div class="col-12 nominal" id="target">
 
+            </div>
+        </div>
+        <div class ="row">
+            <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="inflation" id="inflationValue">
+                    <label class="form-check-label" for="inflationValue">
+                      Show Inflation Adjusted Results
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="nominal" id="nominalValue" checked>
+                    <label class="form-check-label" for="nominalValue">
+                      Show Nominal Results
+                    </label>
+                  </div>
             </div>
         </div>
     </div>

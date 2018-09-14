@@ -1,7 +1,7 @@
 const margin = {
   "top": 100,
   "right": 20,
-  "bottom": 100,
+  "bottom": 30,
   "left": 100
 }
 const width = 1440;
@@ -65,18 +65,19 @@ d3.json("data/books.json").then((data) => {
   axis.append("g")
     .attr("class", "y axis")
     .call(d3.axisLeft(y)
-    .tickSize(-(width-xPadding)));
+    .tickSize(-(width-xPadding)).tickFormat(d3.format("($~s")))
+    ;
   axis.append("g")
   .attr("class", "x axis")
     .attr("transform", `translate(0, ${height - yPadding})`)
-    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yPadding)));
+    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yPadding)).tickPadding(10));
 
 let paths = g.append("g")
     .attr("class", "paths")
 
   paths.append("path")
     .data([data.sales])
-    .attr("class", "line")
+    .attr("class", "line nominal")
     .attr("d", line)
 
   paths.append("path")
@@ -91,7 +92,7 @@ let paths = g.append("g")
     .data(data.sales)
     .enter()
     .append("circle")
-    .attr("class", "dot")
+    .attr("class", "dot nominal")
     .attr("cx", function (d) { return x(d.date) })
     .attr("cy", function (d) { return y(d.price) })
     .attr("r", radius)
@@ -105,3 +106,10 @@ let paths = g.append("g")
     .attr("r", radius)
     .append("title").text(function (d) { return `${d.title} ${d.grade} ${d.inflationAdjustedPrice.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}: ${d.venue}` });
 });
+
+document.getElementById("inflationValue").addEventListener("change", ()=>{
+  document.getElementById("target").classList.toggle("inflation")
+})
+document.getElementById("nominalValue").addEventListener("change", ()=>{
+  document.getElementById("target").classList.toggle("nominal")
+})
