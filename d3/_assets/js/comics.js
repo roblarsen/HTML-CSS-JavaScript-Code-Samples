@@ -16,7 +16,7 @@ const svg = d3.select("#target")
 
 const g = svg.append("g")
   .attr("transform", `translate(${margin.left},${margin.top})`)
-const radius = 10
+const radius = 5
 const parseTime = d3.timeParse("%Y-%m-%d");
 
 const x = d3.scaleTime()
@@ -57,8 +57,21 @@ d3.json("data/books.json").then((data) => {
   y.domain([0, d3.max(data.sales, (d)=> { 
     return Math.ceil(d.price / 500000) * 500000; 
   })]);
+  const years = parseInt(moment().format("YYYY")) - parseInt(moment(x.domain()[0]).format("YYYY"));
+  
+  let axis = g.append("g")
+    .attr("class", "axis")
 
-  let paths = g.append("g")
+  axis.append("g")
+    .attr("class", "y axis")
+    .call(d3.axisLeft(y)
+    .tickSize(-(width-xPadding)));
+  axis.append("g")
+  .attr("class", "x axis")
+    .attr("transform", `translate(0, ${height - yPadding})`)
+    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yPadding)));
+
+let paths = g.append("g")
     .attr("class", "paths")
 
   paths.append("path")
@@ -91,17 +104,4 @@ d3.json("data/books.json").then((data) => {
     .attr("cy", function (d) { return y(d.inflationAdjustedPrice) })
     .attr("r", radius)
     .append("title").text(function (d) { return `${d.title} ${d.grade} ${d.inflationAdjustedPrice.toLocaleString('us-EN', { style: 'currency', currency: 'USD' })}: ${d.venue}` });
-  let axis = g.append("g")
-    .attr("class", "axis")
-
-  axis.append("g")
-    .attr("class", "y axis")
-    .call(d3.axisLeft(y)
-    .tickSize(-(width-xPadding)));
-  axis.append("g")
-  .attr("class", "x axis")
-    .attr("transform", `translate(0, ${height - yPadding})`)
-    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yPadding)));
-
-
 });
