@@ -8,7 +8,8 @@
       "note":"",
       "date": "2014-08-24",
       "seller": "Pristine Comics on eBay",
-      "price": "3207852"
+      "price": "3207852",
+      "goodDate": true
     },
     {
       "title": "Action Comics",
@@ -18,7 +19,8 @@
       "note":"Cage Copy",
       "date": "2011-11-30",
       "seller": "ComicConnect",
-      "price": "2161000"
+      "price": "2161000",
+      "goodDate": true
     },
     {
       "title": "Action Comics",
@@ -28,7 +30,8 @@
       "note":"",
       "date": "2010-03-29",
       "seller": "ComicConnect",
-      "price": "1500000"
+      "price": "1500000",
+      "goodDate": true
     },
     {
       "title": "Detective Comics",
@@ -38,7 +41,8 @@
       "note":"",
       "date": "2010-02-25",
       "seller": "Heritage",
-      "price": "1075000"
+      "price": "1075000",
+      "goodDate": true
     },
     {
       "title": "Action Comics",
@@ -48,7 +52,8 @@
       "note": "Kansas City",
       "date": "2010-02-22",
       "seller": "ComicConnect",
-      "price": "1000000"
+      "price": "1000000",
+      "goodDate": true
     },
     {
       "title": "Flash Comics",
@@ -58,7 +63,8 @@
       "buyer": "JP the Mint",
       "date": "2004-01-01",
       "seller": "unknown",
-      "price": "350000"
+      "price": "350000",
+      "goodDate": false
     },
     {
       "title": "Marvel Comics",
@@ -68,7 +74,8 @@
       "buyer": "JP the Mint",
       "date": "2003-01-01",
       "seller": "Steve Geppi",
-      "price": "350000"
+      "price": "350000",
+      "goodDate": true
     },
     {
       "title": "Detective Comics",
@@ -78,7 +85,8 @@
       "buyer": "",
       "date": "2001-10-26",
       "seller": "Mastronet",
-      "price": "278190"
+      "price": "278190",
+      "goodDate": true
     },
     {
       "title": "Captain America Comics",
@@ -88,7 +96,8 @@
       "buyer": "John Verzyl",
       "date": "2001-01-01",
       "seller": "unknown",
-      "price": "260000"
+      "price": "260000",
+      "goodDate": false
     },
     {
       "title": "Action Comics",
@@ -98,7 +107,8 @@
       "buyer": "Daniel Kramer",
       "date": "1995-01-01",
       "seller": "PCE",
-      "price": "137500"
+      "price": "137500",
+      "goodDate": false
     },
     {
       "title": "Detective Comics",
@@ -108,7 +118,8 @@
       "buyer":"",
       "date": "1994-01-01",
       "seller": "Dave Anederson?",
-      "price": "125000"
+      "price": "125000",
+      "goodDate": false
     },
     {
       "title": "Detective Comics",
@@ -118,7 +129,8 @@
       "buyer":"",
       "date": "1993-01-01",
       "seller": "unknown",
-      "price": "101000"
+      "price": "101000",
+      "goodDate": false
     },
     {
       "title": "Action Comics",
@@ -128,7 +140,8 @@
       "buyer": "Metropolis (for actor Nic Cage)",
       "seller": "Sotheby's",
       "price": "82500",
-      "date": "1992-01-01"
+      "date": "1992-09-30",
+      "goodDate": true
     },
     {
       "title": "Detective Comics",
@@ -138,7 +151,8 @@
       "buyer":"Dave Anderson",
       "price": "80000",
       "seller": "unknown",
-      "date": "1990-01-01"
+      "date": "1990-01-01",
+      "goodDate": false
     },
     {
       "title": "Action Comics",
@@ -148,7 +162,8 @@
       "note": "Church Copy",
       "seller": "unknown",
       "price": "25000",
-      "date": "1984-01-01"
+      "date": "1984-01-01",
+      "goodDate": false
     },
     {
       "title": "Marvel Comics",
@@ -158,7 +173,8 @@
       "buyer": "Steve Geppi",
       "date": "1979-10-08",
       "seller": "John Snyder",
-      "price": "17500"
+      "price": "17500",
+      "goodDate": true
     },
     {
       "title": "Marvel Comics",
@@ -168,19 +184,9 @@
       "buyer": "John Snyder",
       "date": "1979-01-01",
       "seller": "unknown",
-      "price": "13000"
+      "price": "13000",
+      "goodDate": false
     },
-    {
-      "title": "Marvel Comics",
-      "issue": "1",
-      "grade": "",
-      "note":"",
-      "buyer": "John Snyder",
-      "date": "1979-01-01",
-      "seller": "unknown",
-      "price": "13000"
-    },
-    
     {
       "title": "Marvel Comics",
       "issue": "1",
@@ -189,7 +195,8 @@
       "buyer": "",
       "date": "1977-01-01",
       "seller": "Robert Crestohl?",
-      "price": "7500"
+      "price": "7500",
+      "goodDate": false
     },
     {
       "title": "Motion Picture Funnies Weekly",
@@ -199,7 +206,8 @@
       "note":"",
       "date": "1976-01-01",
       "seller": "unknown",
-      "price": "6300"
+      "price": "6300",
+      "goodDate": false
     },
     {
       "title": "Whiz",
@@ -209,17 +217,8 @@
       "buyer": "Burl Rowe",
       "date": "1974-01-04",
       "seller": "Comics & Comix",
-      "price": "2000"
-    },
-    {
-      "title": "Detective",
-      "issue": "27",
-      "grade": "",
-      "note":"Reilly Copy",
-      "buyer": "Burl Rowe",
-      "date": "1974-01-04",
-      "seller": "Comics & Comix",
-      "price": "2200"
+      "price": "2000",
+      "goodDate": true
     },
     {
       "title": "Action",
@@ -229,7 +228,8 @@
       "buyer": "Bruce Hamilton",
       "date": "1973-04-02",
       "seller": "Gene Henderson",
-      "price": "1000"
+      "price": "1000",
+      "goodDate": true
     },
     {
       "title": "Action",
@@ -239,7 +239,8 @@
       "buyer": "Theo Hostein",
       "date": "1973-04-22",
       "seller": "Bruce Hamilton",
-      "price": "1500.00"
+      "price": "1500.00",
+      "goodDate": true
     },
     {
       "title": "Action",
@@ -249,7 +250,8 @@
       "buyer": "Mitch Mehdy",
       "date": "1973-05-01",
       "seller": "Theo Hostein",
-      "price": "1801.26"
+      "price": "1801.26",
+      "goodDate": true
     },
     {
       "title": "Marvel Comics",
@@ -259,7 +261,8 @@
       "note":"",
       "date": "1968-01-01",
       "seller": "Howard Rogolfsky",
-      "price": "330"
+      "price": "330",
+      "goodDate": false
     },
     {
       "title": "Action Comics",
@@ -269,7 +272,8 @@
       "note":"",
       "date": "1965-01-01",
       "seller": "unknown",
-      "price": "250"
+      "price": "250",
+      "goodDate": false
     }
   ]
 }

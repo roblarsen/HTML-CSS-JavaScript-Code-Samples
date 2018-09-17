@@ -171,9 +171,10 @@ d3.json('data/books.json').then((data) => {
       let soldBy = ' ';
       let soldTo = ' ';
       let note = ' ';
+      let date;
       if (d.seller !== '') {
         if (d.seller === 'unknown') {
-          soldBy = ' by an unknown seller '
+          soldBy = ' by an unknown seller ';
         } else {
           soldBy = ` sold by ${d.seller} `;
         }
@@ -184,7 +185,12 @@ d3.json('data/books.json').then((data) => {
       if (d.note !== '') {
         note = ` (${d.note}) `;
       }
-      return `${d.title} #${d.issue}${note}${soldBy} for ${d.price.toLocaleString('us-EN', {style: 'currency', currency: 'USD'})} (${d.inflationAdjustedPrice.toLocaleString('us-EN', {style: 'currency', currency: 'USD'})})${soldTo}in ${moment(d.date).format('YYYY')}`;
+      if (d.goodDate) {
+        date = `in ${moment(d.date).format('MMMM of YYYY')}`;
+      } else {
+        date = `sometime in ${moment(d.date).format('YYYY')}`;
+      }
+      return `${d.title} #${d.issue}${note}${soldBy} for ${d.price.toLocaleString('us-EN', {style: 'currency', currency: 'USD'})} (${d.inflationAdjustedPrice.toLocaleString('us-EN', {style: 'currency', currency: 'USD'})})${soldTo} ${date}`;
     });
 
 });
