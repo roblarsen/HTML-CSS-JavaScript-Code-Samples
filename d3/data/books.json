@@ -117,7 +117,7 @@
       "note": "Church",
       "buyer":"",
       "date": "1994-01-01",
-      "seller": "Dave Anederson?",
+      "seller": "Dave Anderson?",
       "price": "125000",
       "goodDate": false
     },
@@ -150,7 +150,7 @@
       "note": "Allentown",
       "buyer":"Dave Anderson",
       "price": "80000",
-      "seller": "unknown",
+      "seller": "Metropolis",
       "date": "1990-01-01",
       "goodDate": false
     },
@@ -160,7 +160,7 @@
       "grade": "NM",
       "buyer":"Dave Anderson",
       "note": "Church Copy",
-      "seller": "unknown",
+      "seller": "John Snyder",
       "price": "25000",
       "date": "1984-01-01",
       "goodDate": false
