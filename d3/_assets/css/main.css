@@ -92,7 +92,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-   text {
+text {
     font-family: Raleway;
     font-size: .8em;
     text-anchor: middle;
@@ -149,27 +149,31 @@ text.legend{
 }
 .tooltip.bs-tooltip-bottom .arrow:before {
     border-right-color: rgb(0, 100, 201) !important;
-}
+   }
+
 .tooltip.bs-tooltip-top .arrow:before {
     border-right-color: rgb(0, 100, 201) !important;
 }
-.inlation .tooltip-inner {
-    background-color:rgba(0, 100, 201,.5);
-}
-.inlation.tooltip.bs-tooltip-right .arrow:before {
-    border-right-color:rgba(0, 100, 201,.5) !important;
-}
-.inlation.tooltip.bs-tooltip-left .arrow:before {
-    border-right-color:rgba(0, 100, 201,8) !important;
-}
-.inlation.tooltip.bs-tooltip-bottom .arrow:before {
-    border-right-color:rgba(0, 100, 201,.5) !important;
-}
-.inlation.tooltip.bs-tooltip-top .arrow:before {
-    border-right-color:rgba(0, 100, 201,.5) !important;
+
+.inflation .tooltip-inner {
+    background-color: rgba(0, 100, 201, .8);
 }
 
+.inflation.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: rgba(0, 100, 201, .8) !important;
+}
 
+.inflation.tooltip.bs-tooltip-left .arrow:before {
+    border-right-color: rgba(0, 100, 201, .8) !important;
+}
+
+.inflation.tooltip.bs-tooltip-bottom .arrow:before {
+    border-right-color: rgba(0, 100, 201, .8) !important;
+}
+
+.inflation.tooltip.bs-tooltip-top .arrow:before {
+    border-right-color: rgba(0, 100, 201, .8) !important;
+}
 
 
 
