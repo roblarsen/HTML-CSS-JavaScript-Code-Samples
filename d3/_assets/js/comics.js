@@ -6,8 +6,8 @@ const margin = {
 };
 const width = 1440;
 const height = 768;
-const yPadding = margin.top + margin.bottom;
-const xPadding = margin.right + margin.left;
+const yMargin = margin.top + margin.bottom;
+const xMargin = margin.right + margin.left;
 
 const svg = d3.select('#target')
   .append('svg')
@@ -40,10 +40,10 @@ const list = d3.select('#data')
   .append('ul').attr('class','list-group');
 
 const x = d3.scaleTime()
-  .rangeRound([0, width - xPadding]);
+  .rangeRound([0, width - xMargin]);
 
 const y = d3.scaleLinear()
-  .rangeRound([height - yPadding, 0]);
+  .rangeRound([height - yMargin, 0]);
 
 
 const line = d3.line()
@@ -93,11 +93,11 @@ d3.json('data/books.json').then((data) => {
   axis.append('g')
     .attr('class', 'y axis')
     .call(d3.axisLeft(y)
-      .tickSize(-(width - xPadding)).tickFormat(d3.format('($~s')));
+      .tickSize(-(width - xMargin)).tickFormat(d3.format('($~s')));
   axis.append('g')
     .attr('class', 'x axis')
-    .attr('transform', `translate(0, ${height - yPadding})`)
-    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yPadding)).tickPadding(10));
+    .attr('transform', `translate(0, ${height - yMargin})`)
+    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yMargin)).tickMargin(10));
 
   let paths = g.append('g')
     .attr('class', 'paths');
