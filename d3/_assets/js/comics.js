@@ -62,12 +62,6 @@ const inflationLine = d3.line()
     return y(d.inflationAdjustedPrice);
   });
 
-
-function yGridlines() {
-  return d3.axisLeft(y)
-    .ticks(5);
-}
-
 d3.json('data/books.json').then((data) => {
   const sales = data.sales.sort((d1, d2) => moment.utc(d1.date).diff(moment.utc(d2.date)));
 
@@ -97,7 +91,7 @@ d3.json('data/books.json').then((data) => {
   axis.append('g')
     .attr('class', 'x axis')
     .attr('transform', `translate(0, ${height - yMargin})`)
-    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yMargin)).tickMargin(10));
+    .call(d3.axisBottom(x).ticks(years).tickSize(-(height - yMargin)).tickPadding(10));
 
   let paths = g.append('g')
     .attr('class', 'paths');
