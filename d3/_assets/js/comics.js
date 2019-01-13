@@ -10,9 +10,9 @@ const yMargin = margin.top + margin.bottom;
 const xMargin = margin.right + margin.left;
 
 const svg = d3.select('#target')
-  .append('svg')
-  .attr('width', width)
-  .attr('height', height);
+  .append('svg')  
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", `0 0 ${width} ${height}`)
 
 const g = svg.append('g')
   .attr('transform', `translate(${margin.left},${margin.top})`);

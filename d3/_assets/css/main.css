@@ -102,6 +102,7 @@ text.legend{
     font-size: 1.25em;
     fill: #000;
 }
+
 .line {
     fill:none;
     stroke: rgb(0, 100, 201);
