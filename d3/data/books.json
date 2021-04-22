@@ -3,6 +3,17 @@
     {
       "title": "Action Comics",
       "issue": "1",
+      "grade": "8.5",
+      "buyer": "",
+      "note":"",
+      "date": "2021-04-26",
+      "seller": "ComicConnect",
+      "price": "3250000",
+      "goodDate": true
+    },
+    {
+      "title": "Action Comics",
+      "issue": "1",
       "grade": "9.0",
       "buyer": "Metropolis (for Ayman Hariri)",
       "note":"",
